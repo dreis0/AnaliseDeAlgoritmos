@@ -7,7 +7,7 @@ namespace AnaliseDeAlgoritmo
     {
         static void Main(string[] args)
         {
-            int[] array = { 6, 5, 1, 3, 9, 7, 2, 6, 12, 11 };
+            int[] array = { 15, 5, 1, 3, 9, 7, 2, 6, 12, 11 };
 
             Utils.Print(array);
             MergeSort.Sort(array);

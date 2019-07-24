@@ -15,7 +15,7 @@ namespace AnaliseDeAlgoritmo.Sorts
         {
             if (start < end)
             {
-                int middle = (start + end) / 2;
+                int middle = start + (end - start) / 2;
 
                 Sort(array, start, middle);
                 Sort(array, middle + 1, end);
@@ -26,43 +26,44 @@ namespace AnaliseDeAlgoritmo.Sorts
 
         private static void Merge(int[] array, int start, int middle, int end)
         {
-            int sizeA = middle - start;
-            int sizeB = end - middle;
+            int sizeL = middle - start + 1;
+            int sizeR = end - middle;
 
-            int[] A = new int[sizeA];
-            int[] B = new int[sizeB];
+            int[] L = new int[sizeL];
+            int[] R = new int[sizeR];
 
-            for (int h = 0; h < sizeA; h++)
-                A[h] = array[start + h];
-            for (int h = 0; h < sizeB; h++)
-                B[h] = array[middle + h];
+            for (int h = 0; h < sizeL; h++)
+                L[h] = array[start + h];
+            for (int h = 0; h < sizeR; h++)
+                R[h] = array[middle + h + 1];
 
             int i = 0, j = 0, k = start;
 
-            while (i < sizeA && j < sizeB)
+            while (i < sizeL && j < sizeR)
             {
-                if (A[i] <= B[j])
+                if (L[i] <= R[j])
                 {
-                    array[k] = A[i];
+                    array[k] = L[i];
                     i++;
                 }
                 else
                 {
-                    array[k] = B[j];
+                    array[k] = R[j];
                     j++;
                 }
                 k++;
             }
 
-            while (i < sizeA)
+            while (i < sizeL)
             {
-                array[k] = A[i];
+                array[k] = L[i];
                 i++;
                 k++;
             }
-            while (j < sizeB)
+
+            while (j < sizeR)
             {
-                array[k] = B[j];
+                array[k] = R[j];
                 j++;
                 k++;
             }
