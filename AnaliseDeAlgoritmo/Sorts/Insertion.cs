@@ -8,7 +8,7 @@ namespace AnaliseDeAlgoritmo
     {
         public static void InsertionSort(this int[] array)
         {
-            array.InsertionSort<int>((a, b) => a < b);
+            array.InsertionSort((a, b) => a < b);
         }
 
         public static void InsertionSort<T>(this IList<T> array, Func<T, T, bool> comparingFunction)
