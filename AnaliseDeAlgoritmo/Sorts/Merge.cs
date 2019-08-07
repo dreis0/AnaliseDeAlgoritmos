@@ -4,33 +4,33 @@ using System.Text;
 
 namespace AnaliseDeAlgoritmo.Sorts
 {
-    public static class MergeSort
+    public static class Merge
     {
-        public static void Sort(int[] array)
+        public static void MergeSort<T>(this IList<T> array, Func<T, T, bool> comparingFunction)
         {
-            Sort(array, 0, array.Length - 1);
+            SortAndMerge<T>(array, 0, array.Count - 1, comparingFunction);
         }
 
-        public static void Sort(int[] array, int start, int end)
+        private static void SortAndMerge<T>(IList<T> array, int start, int end, Func<T, T, bool> comparingFunction)
         {
             if (start < end)
             {
                 int middle = start + (end - start) / 2;
 
-                Sort(array, start, middle);
-                Sort(array, middle + 1, end);
+                SortAndMerge<T>(array, start, middle, comparingFunction);
+                SortAndMerge<T>(array, middle + 1, end, comparingFunction);
 
-                Merge(array, start, middle, end);
+                MergeArray<T>(array, start, middle, end, comparingFunction);
             }
         }
 
-        private static void Merge(int[] array, int start, int middle, int end)
+        public static void MergeArray<T>(IList<T> array, int start, int middle, int end, Func<T, T, bool> comparingFunction)
         {
             int sizeL = middle - start + 1;
             int sizeR = end - middle;
 
-            int[] L = new int[sizeL];
-            int[] R = new int[sizeR];
+            T[] L = new T[sizeL];
+            T[] R = new T[sizeR];
 
             for (int h = 0; h < sizeL; h++)
                 L[h] = array[start + h];
@@ -41,7 +41,7 @@ namespace AnaliseDeAlgoritmo.Sorts
 
             while (i < sizeL && j < sizeR)
             {
-                if (L[i] <= R[j])
+                if (comparingFunction(L[i], R[j]))
                 {
                     array[k] = L[i];
                     i++;
@@ -67,6 +67,11 @@ namespace AnaliseDeAlgoritmo.Sorts
                 j++;
                 k++;
             }
+        }
+
+        public static void MergeSort(this int[] array)
+        {
+            array.MergeSort<int>((a, b) => a < b);
         }
     }
 }
