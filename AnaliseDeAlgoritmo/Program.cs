@@ -7,9 +7,9 @@ namespace AnaliseDeAlgoritmo
     class Program
     {
         /* 
-            BubbleSort 
+            BubbleSort      - OK
             InsertionSort   - OK
-            SelectionSort
+            SelectionSort   
             MergeSort       - OK
             QuickSort
             PartitionSort
@@ -19,12 +19,9 @@ namespace AnaliseDeAlgoritmo
         {
             int[] array = { 3, 1, 5, 8, 2, 4, 7, 6, 9 };
 
-            Utils.Print(array);
-
-            array.InsertionSort();
-            //MergeSort.Sort(array);
-
-            Utils.Print(array);
+            array.Print();
+            array.BubbleSort();
+            array.Print();
 
             Console.ReadLine();
         }
