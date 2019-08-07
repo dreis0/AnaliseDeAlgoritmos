@@ -20,19 +20,11 @@ namespace AnaliseDeAlgoritmo
             int[] array = { 3, 1, 5, 8, 2, 4, 7, 6, 9 };
 
             Utils.Print(array);
-            Heap.Heap heap = new Heap.Heap();
 
-            heap.ConstroiHeap(array);
-            Utils.Print(heap.H.ToArray());
+            array.InsertionSort();
+            //MergeSort.Sort(array);
 
-            heap.RemoveDaHeap();
-            Utils.Print(heap.H.ToArray());
-
-            heap.InserenaHeap(10, 10);
-            Utils.Print(heap.H.ToArray());
-
-            heap.AlteraHeap(3, 100);
-            Utils.Print(heap.H.ToArray());
+            Utils.Print(array);
 
             Console.ReadLine();
         }

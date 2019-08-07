@@ -4,9 +4,9 @@ using System.Text;
 
 namespace AnaliseDeAlgoritmo.Sorts
 {
-    public static class MergeSort
+    public static class Merge
     {
-        public static void Sort<T>(this IList<T> array, Func<T, T, bool> comparingFunction)
+        public static void MergeSort<T>(this IList<T> array, Func<T, T, bool> comparingFunction)
         {
             SortAndMerge<T>(array, 0, array.Count - 1, comparingFunction);
         }
@@ -20,11 +20,11 @@ namespace AnaliseDeAlgoritmo.Sorts
                 SortAndMerge<T>(array, start, middle, comparingFunction);
                 SortAndMerge<T>(array, middle + 1, end, comparingFunction);
 
-                Merge<T>(array, start, middle, end, comparingFunction);
+                MergeArray<T>(array, start, middle, end, comparingFunction);
             }
         }
 
-        public static void Merge<T>(IList<T> array, int start, int middle, int end, Func<T, T, bool> comparingFunction)
+        public static void MergeArray<T>(IList<T> array, int start, int middle, int end, Func<T, T, bool> comparingFunction)
         {
             int sizeL = middle - start + 1;
             int sizeR = end - middle;
@@ -69,9 +69,9 @@ namespace AnaliseDeAlgoritmo.Sorts
             }
         }
 
-        public static void Sort(this int[] array)
+        public static void MergeSort(this int[] array)
         {
-            array.Sort<int>((a, b) => a < b);
+            array.MergeSort<int>((a, b) => a < b);
         }
     }
 }
