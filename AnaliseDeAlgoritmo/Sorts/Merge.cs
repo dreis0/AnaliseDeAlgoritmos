@@ -6,12 +6,17 @@ namespace AnaliseDeAlgoritmo.Sorts
 {
     public static class Merge
     {
-        public static void MergeSort<T>(this IList<T> array, Func<T, T, bool> comparingFunction)
+        public static IList<T> MergeSort<T>(this IList<T> array, Func<T, T, bool> comparingFunction)
         {
-            SortAndMerge<T>(array, 0, array.Count - 1, comparingFunction);
+            return SortAndMerge<T>(array, 0, array.Count - 1, comparingFunction);
         }
 
-        private static void SortAndMerge<T>(IList<T> array, int start, int end, Func<T, T, bool> comparingFunction)
+        public static IList<int> MergeSort(this IList<int> array)
+        {
+            return array.MergeSort<int>((a, b) => a < b);
+        }
+
+        private static IList<T> SortAndMerge<T>(IList<T> array, int start, int end, Func<T, T, bool> comparingFunction)
         {
             if (start < end)
             {
@@ -22,6 +27,8 @@ namespace AnaliseDeAlgoritmo.Sorts
 
                 MergeArray<T>(array, start, middle, end, comparingFunction);
             }
+
+            return array;
         }
 
         public static void MergeArray<T>(IList<T> array, int start, int middle, int end, Func<T, T, bool> comparingFunction)
@@ -67,11 +74,6 @@ namespace AnaliseDeAlgoritmo.Sorts
                 j++;
                 k++;
             }
-        }
-
-        public static void MergeSort(this int[] array)
-        {
-            array.MergeSort<int>((a, b) => a < b);
         }
     }
 }

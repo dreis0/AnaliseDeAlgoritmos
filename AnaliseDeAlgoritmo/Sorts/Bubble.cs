@@ -6,12 +6,12 @@ namespace AnaliseDeAlgoritmo.Sorts
 {
     public static class Bubble
     {
-        public static void BubbleSort(this IList<int> array)
+        public static IList<int> BubbleSort(this IList<int> array)
         {
-            array.BubbleSort((a, b) => a > b);
+            return array.BubbleSort((a, b) => a > b);
         }
 
-        public static void BubbleSort<T>(this IList<T> array, Func<T, T, bool> comparingFunction)
+        public static IList<T> BubbleSort<T>(this IList<T> array, Func<T, T, bool> comparingFunction)
         {
             bool swap = true;
             while (swap)
@@ -28,6 +28,8 @@ namespace AnaliseDeAlgoritmo.Sorts
                     }
                 }
             }
+
+            return array;
         }
     }
 }
