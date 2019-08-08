@@ -1,7 +1,7 @@
 ﻿using AnaliseDeAlgoritmo.Sorts;
+using AnaliseDeAlgoritmo.Utils;
 using System;
 using System.Collections.Generic;
-using Utils;
 
 namespace Application
 {
@@ -18,11 +18,11 @@ namespace Application
          */
         static void Main(string[] args)
         {
-            int[] array = { 3, 1, 5, 8, 2, 4, 7, 6, 9 };
+            IList<int> array = new int[] { 3, 9, 1, 2, 7, 4, 8, 5, 0, 6 };
 
-            array.Print();
-            array.BubbleSort();
-            array.Print();
+            array.Print()
+                .MergeSort()
+                .Print();
 
             Console.ReadLine();
         }
