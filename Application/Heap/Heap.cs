@@ -6,7 +6,7 @@
 
         public void ConstroiHeap(int[] array)
         {
-            H = ToHeap(array);
+            H = array.ToHeap();
 
             for (int i = (array.Length / 2) - 1; i >= 0; i--)
                 CorrigeHeapDescendo(i);
@@ -82,18 +82,7 @@
             }
         }
 
-        private HeapItem<int>[] ToHeap(int[] array)
-        {
-            HeapItem<int>[] heap = new HeapItem<int>[array.Length];
 
-            for (int i = 0; i < array.Length; i++)
-            {
-                heap[i] = new HeapItem<int>();
-                heap[i].Prioridade = array[i];
-                heap[i].Value = array[i];
-            }
-            return heap;
-        }
     }
 
     public static class HeapMapper
@@ -106,6 +95,19 @@
                 result[i] = H[i].Value;
 
             return result;
+        }
+
+        public static HeapItem<int>[] ToHeap(this int[] array)
+        {
+            HeapItem<int>[] heap = new HeapItem<int>[array.Length];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                heap[i] = new HeapItem<int>();
+                heap[i].Prioridade = array[i];
+                heap[i].Value = array[i];
+            }
+            return heap;
         }
     }
 }

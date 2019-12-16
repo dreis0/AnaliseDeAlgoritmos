@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace AnaliseDeAlgoritmo.Sorts
+namespace Application.Sorts
 {
     public static class Merge
     {
@@ -31,7 +30,7 @@ namespace AnaliseDeAlgoritmo.Sorts
             return array;
         }
 
-        public static void MergeArray<T>(IList<T> array, int start, int middle, int end, Func<T, T, bool> comparingFunction)
+        private static void MergeArray<T>(IList<T> array, int start, int middle, int end, Func<T, T, bool> comparingFunction)
         {
             int sizeL = middle - start + 1;
             int sizeR = end - middle;

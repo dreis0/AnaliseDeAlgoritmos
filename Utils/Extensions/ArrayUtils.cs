@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace AnaliseDeAlgoritmo
+namespace Utils.Extensions
 {
-    public static class Extensions
+    public static class ArrayUtils
     {
         public static IList<T> Swap<T>(this IList<T> array, int firstIndex, int SecondIndex)
         {

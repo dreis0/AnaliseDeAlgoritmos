@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using Utils.Extensions;
 
-namespace AnaliseDeAlgoritmo.Sorts
+namespace Application.Sorts
 {
     public static class Bubble
     {
@@ -22,9 +22,7 @@ namespace AnaliseDeAlgoritmo.Sorts
                     if (comparingFunction(array[i], array[i + 1]))
                     {
                         swap = true;
-                        T aux = array[i];
-                        array[i] = array[i + 1];
-                        array[i + 1] = aux;
+                        array.Swap(i, i + 1);
                     }
                 }
             }

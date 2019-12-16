@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using Utils.Extensions;
 
-namespace AnaliseDeAlgoritmo.Sorts
+namespace Application.Sorts
 {
     public static class Quick
     {

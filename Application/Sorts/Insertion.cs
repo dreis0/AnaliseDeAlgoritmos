@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AnaliseDeAlgoritmo
+namespace Application.Sorts
 {
     public static class Insertion
     {
