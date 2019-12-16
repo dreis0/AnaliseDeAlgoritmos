@@ -1,4 +1,4 @@
-﻿namespace AnaliseDeAlgoritmo.Heap
+﻿namespace Application.Heap
 {
     public class Heap : IHeap<int>
     {

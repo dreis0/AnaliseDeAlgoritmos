@@ -1,8 +1,9 @@
-﻿using AnaliseDeAlgoritmo.Heap;
-using AnaliseDeAlgoritmo.Sorts;
+﻿using AnaliseDeAlgoritmo.Sorts;
 using System;
+using System.Collections.Generic;
+using Utils;
 
-namespace AnaliseDeAlgoritmo
+namespace Application
 {
     class Program
     {

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AnaliseDeAlgoritmo.Heap
+﻿
+namespace Application.Heap
 {
     public interface IHeap<T>
     {
